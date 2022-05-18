@@ -1,0 +1,47 @@
+/**
+ * Created by andeville on 8/04/2022.
+ */
+/* Triple Dots Section */
+.spotlight-dots {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.3s ease-in-out;
+}
+.dot-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+.dot,
+.little-dot {
+    cursor: pointer;
+    background-color: var(--utilitySeparatorLineColor);
+    border-radius: 50%;
+    transition: all 0.3s ease-in-out;
+}
+.little-dot {
+    width: 6px;
+    height: 6px;
+    margin: 0 3px;
+}
+.dot {
+    display: block;
+    width: 9px;
+    height: 9px;
+    margin: 0 5px;
+}
+
+.highlight-dot {
+    background-color: var(--brandColor);
+}
+
+/* Indicator */
+.indicator {
+    position: absolute;
+    transition: all 0.3s ease;
+    background: var(--brandColor);
+    border-radius: 50%;
+    left: 0;
+}
