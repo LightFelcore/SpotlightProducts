@@ -1,0 +1,27 @@
+    <!--
+     - Created by andeville on 8/04/2022.
+     -->
+
+    <!-- B 2 B Lcp Carrousel Dots -->
+    <template>
+        <template if:false={hideDots}>
+            <div class="spotlight-dots">
+                <template if:true={moreThanThreeCarouselItems}>
+                    <template if:true={showLeftDot}>
+                        <div data-id="-1" data-little-dots="little-dots" onclick={onDotClick} class="little-dot"></div>
+                    </template>
+                </template>
+                <div class="dot-wrapper" data-dot-wrapper="dot-wrapper">
+                    <div data-indicator="indicator" class="indicator dot"></div>
+                    <template for:each={dotsAmount} for:item="dotAmount" for:index="i">
+                        <div data-id={i} key={dotAmount.Id} data-dots="dots" onclick={onDotClick} class="dot"></div>
+                    </template>
+                </div>
+                <template if:true={moreThanThreeCarouselItems}>
+                    <template if:true={showRightDot}>
+                        <div data-id="3" data-little-dots="little-dots" onclick={onDotClick} class="little-dot"></div>
+                    </template>
+                </template>
+            </div>
+        </template>
+    </template>

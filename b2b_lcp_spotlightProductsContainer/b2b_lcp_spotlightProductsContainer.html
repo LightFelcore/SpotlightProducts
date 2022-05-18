@@ -1,0 +1,13 @@
+<!--
+ - Created by andeville on 28/04/2022.
+ -->
+
+<!-- B 2 B Lcp Spotlight Products Container -->
+<template>
+    <template if:true={showSpinner}>
+        <c-b2b_lcp_spinner position="full-component" variant="brand" background-color="transparent"></c-b2b_lcp_spinner>
+    </template>
+    <template if:true={showSpotlightProductWidget}>
+        <c-b2b_lcp_carrousel-content></c-b2b_lcp_carrousel-content>
+    </template>
+</template>

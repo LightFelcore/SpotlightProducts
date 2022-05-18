@@ -1,0 +1,95 @@
+<!--
+ - Created by andeville on 28/04/2022.
+ -->
+
+<!-- B 2 B Lcp Carrousel Content -->
+<template>
+    <div class="slds-grid slds-wrap carrousel" data-carrousel="carrousel">
+        <div class="slds-col slds-medium-size_1-of-1 spotlight-header">
+            <template if:true={enhancements.statusHeaderTitleSection}>
+                <h1>{labels.carrouselHeaderTitle}</h1>
+            </template>
+            <template if:true={enhancements.statusHeaderArrowsSection}>
+                <div class="spotlight-arrows">
+                    <a onclick={onNavArrowClick} data-id={state.prev}
+                       data-carrousel-button-previous="carrousel-button-previous">
+                        <svg class="carrousel-arrow transition" xmlns="http://www.w3.org/2000/svg"
+                             height="22" width="22"
+                             viewBox="0 0 26 26">arrow-left-icon
+                            <use href={arrowLeft}></use>
+                        </svg>
+                    </a>
+                    <a onclick={onNavArrowClick} data-id={state.next}
+                       data-carrousel-button-next="carrousel-button-next">
+                        <svg class="carrousel-arrow transition" xmlns="http://www.w3.org/2000/svg"
+                             height="22" width="22"
+                             viewBox="0 0 26 26">
+                            <use href={arrowRight}></use>
+                        </svg>
+                    </a>
+                </div>
+            </template>
+        </div>
+        <div class="slds-col slds-m-bottom_small content-selection-container shadow-bottom-box">
+            <div class="content-selection-sub-container">
+                <template if:true={enhancements.statusSideArrowsSection}>
+                    <a class="carrousel-side-arrow carrousel-side-prev" onclick={onNavArrowClick} data-id={state.prev}
+                       data-carrousel-button-previous="carrousel-button-previous">
+                        <svg class="carrousel-arrow transition" xmlns="http://www.w3.org/2000/svg" height="40" width="40" viewBox="0 0 30 30">
+                            <use href={arrowLeft}></use>
+                        </svg>
+                    </a>
+                </template>
+                <ul class="slides transition"
+                    ontouchstart={onTouchStart} ontouchend={onTouchEnd}
+                    data-carrousel-slides-container="carrousel-slides-container">
+                    <template for:each={carrouselContentData} for:item="carrouselItem" for:index="index">
+                        <li key={carrouselItem.id} data-slide="slide" class="slide">
+                            <template if:true={carrouselItem.url}>
+                                <img data-images="images" data-id={index} onclick={onCarrouselItemClick} class="carrousel-img" src={carrouselItem.url} alt={labels.brokenCarouselImageLabel}>
+                            </template>
+                            <template if:false={carrouselItem.url}>
+                                <svg class="carrousel-img" data-id={index} onclick={onCarrouselItemClick} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30">
+                                    <use xlink:href={imagePlaceholder}></use>
+                                </svg>
+                            </template>
+                        </li>
+                    </template>
+                </ul>
+                <template if:true={enhancements.statusSideArrowsSection}>
+                    <a class="carrousel-side-arrow carrousel-side-next" onclick={onNavArrowClick} data-id={state.next}
+                       data-carrousel-button-next="carrousel-button-next">
+                        <svg class="carrousel-arrow transition" xmlns="http://www.w3.org/2000/svg" height="40" width="40" viewBox="0 0 30 30">
+                            <use href={arrowRight}></use>
+                        </svg>
+                    </a>
+                </template>
+            </div>
+            <template if:true={enhancements.statusInformationSection}>
+                <div data-carrousel-slides-container="carrousel-slides-container" class="slides" >
+                    <template for:each={carrouselContentData} for:item="carrouselItem" for:index="index">
+                        <div key={carrouselItem.id} class="info-section slide-details">
+                            <div data-id="slide-name" class="slide-name slide-label">{carrouselItem.name}</div>
+                            <div data-id={index} onclick={onCarrouselItemClick} class="slide-see-details slide-label transition">{labels.seeDetailsLabel}&nbsp;
+                                <svg data-slide-see-details-arrow="data-slide-see-details-arrow" class="slide-see-details-arrow"
+                                     xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 17" width="16px" height="17px">
+                                    <polygon points="10.7813333 7.33333333 7.20533333 3.75733333 8.148 2.81466667
+                                13.3333333 8 8.148 13.1853333 7.20533333 12.2426667 10.7813333 8.66666667 2.66666667
+                                8.66666667 2.66666667 7.33333333"></polygon>
+                                </svg>
+                            </div>
+                        </div>
+                    </template>
+                </div>
+            </template>
+        </div>
+        <template if:true={enhancements.statusDotsSection}>
+            <div class="slds-col dots-container">
+                <c-b2b_lcp_carrousel-dots
+                        parent-data-on-load={dotsDataOnLoad}
+                        ondotclick={handleDotClick}>
+                </c-b2b_lcp_carrousel-dots>
+            </div>
+        </template>
+    </div>
+</template>
