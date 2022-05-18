@@ -1,1 +1,0 @@
-Deze repository bevat de code voor het Spotlight Producten widget dat geïmplementeerd werd op vele verschillende projecten als afbeeldingscarrousel. Deze module vervangt de afbeeldingscarrousels dat gemaakt werden aan de hand van de Swiper.js bibliotheek.
